@@ -28,23 +28,26 @@ ARG compareserver
 
 
 
+
+
+
 COPY --from=0 /bin/gor /go/bin/check-proxy /go/bin/checksever /bin/
 
 
 
 
 WORKDIR /
-# 心跳
-CMD sudo nohup /bin/gor  --input-raw :8090  --input-raw-track-response  \
- --output-http-track-response \
- --output-tcp localhost:28020 \
- --output-http $logserver &
-# 拦截
-CMD sudo nohup /bin/gor  --input-raw-track-response  \
-  --output-http-track-response \
-  --input-tcp localhost:28020 \
-  --output-http $compareserver \
-  --middleware "/bin/check-proxy http://$logserver" &
+## 心跳
+#CMD sudo nohup /bin/gor  --input-raw :8090  --input-raw-track-response  \
+# --output-http-track-response \
+# --output-tcp localhost:28020 \
+# --output-http $logserver &
+## 拦截
+#CMD sudo nohup /bin/gor  --input-raw-track-response  \
+#  --output-http-track-response \
+#  --input-tcp localhost:28020 \
+#  --output-http $compareserver \
+#  --middleware "/bin/check-proxy http://$logserver" &
 
 EXPOSE 8090
 

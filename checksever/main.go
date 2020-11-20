@@ -9,6 +9,7 @@ import (
 func main() {
 	args := os.Args
 	fmt.Println(args)
+	fmt.Println("args")
 	if len(args) <= 1 {
 		panic("请输入端口号")
 	}
