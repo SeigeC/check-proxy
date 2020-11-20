@@ -13,6 +13,7 @@ func main() {
 		panic("请输入端口号")
 	}
 	http.HandleFunc("/check", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println(args)
 		w.Write([]byte(args[1]))
 	})
 	http.ListenAndServe("localhost:"+args[1], nil)
