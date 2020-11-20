@@ -17,5 +17,5 @@ func main() {
 		fmt.Println(args)
 		w.Write([]byte(args[1]))
 	})
-	http.ListenAndServe("localhost:"+args[1], nil)
+	http.ListenAndServe("127.0.0.1:"+args[1], nil)
 }

@@ -49,7 +49,6 @@ WORKDIR /
 #  --output-http $compareserver \
 #  --middleware "/bin/check-proxy http://$logserver" &
 
-EXPOSE 8090
 
 
 ENTRYPOINT ["/bin/checksever"]
